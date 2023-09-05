@@ -25,7 +25,7 @@ SWIFTFORMAT_BIN=${SWIFTFORMAT_BIN:-$(command -v swift-format)} || fatal "❌ SWI
 
 git -C "${REPO_ROOT}" ls-files -z '*.swift' \
   | xargs -0 "${SWIFTFORMAT_BIN}" lint --parallel --strict \
-  && SWIFT_FORMAT_RC=$? || SWIFT_FORMAT_RC=$?
+  && SWIFT_FORMAT_RC=$ || SWIFT_FORMAT_RC=$
 
 if [ "${SWIFT_FORMAT_RC}" -ne 0 ]; then
   fatal "❌ Running swift-format produced errors.
